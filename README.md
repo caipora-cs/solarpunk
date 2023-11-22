@@ -1,7 +1,7 @@
 # SolarPunk: Uma Rede Social Para o Futurismo Positivo
-![image]({https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black})
-![image]({https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
-![image]({https://img.shields.io/badge/Android_Studio-3DDC84?style=for-the-badge&logo=android-studio&logoColor=white)
+![firebase]({https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black})
+![dart]({https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
+![Android]({https://img.shields.io/badge/Android_Studio-3DDC84?style=for-the-badge&logo=android-studio&logoColor=white)
 **Visão:** SolarPunk surge como um refúgio digital para os otimistas, os visionários e todos aqueles
 que acreditam num futuro onde a tecnologia e a natureza coexistem harmoniosamente. Em meio a um
 ciberespaço frequentemente saturado de negatividade, SolarPunk se destaca como um espaço de
