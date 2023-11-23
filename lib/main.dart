@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:solarpunk_prototype/views/screens/login_view.dart';
 import '/constant.dart';
 
 void main() {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         primaryColor: primaryColor,
         scaffoldBackgroundColor: backgroundColor,
       ),
-      home: const Text('Hello World'),
+      home: LoginScreen(),
     );
   }
 }
