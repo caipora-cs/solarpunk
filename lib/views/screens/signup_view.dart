@@ -37,8 +37,8 @@ class SignupScreen extends StatelessWidget {
                 const CircleAvatar(
                   radius: 64,
                   backgroundImage: NetworkImage(
-                      'https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png'),
-                  backgroundColor: Colors.black,
+                      'https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png'),
+                  backgroundColor: secondaryColor,
                 ),
                 Positioned(
                   bottom: -10,
@@ -126,7 +126,7 @@ class SignupScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  'Already have an account? ',
+                  'I have a account. ',
                   style: TextStyle(
                     fontSize: 20,
                   ),
