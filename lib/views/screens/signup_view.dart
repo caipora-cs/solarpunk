@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:solarpunk_prototype/constant.dart';
+import 'package:solarpunk_prototype/controllers/authentication.dart';
 //import 'package:solarpunk_prototype/controllers/auth_controller.dart';
 import 'package:solarpunk_prototype/views/screens/login_view.dart';
 import 'package:solarpunk_prototype/views/widgets/textfield.dart';
@@ -44,7 +45,7 @@ class SignupScreen extends StatelessWidget {
                   bottom: -10,
                   left: 80,
                   child: IconButton(
-                    onPressed: () => print('pick image'),//authController.pickImage(),
+                    onPressed: () => authController.pickImage(),//authController.pickImage(),
                     icon: const Icon(
                       Icons.add_a_photo,
                     ),
@@ -102,12 +103,12 @@ class SignupScreen extends StatelessWidget {
                 ),
               ),
               child: InkWell(
-                onTap: () => print('Send to register controller'),/*authController.registerUser(
+                onTap: () => authController.registerUser(
                   _usernameController.text,
                   _emailController.text,
                   _passwordController.text,
-                  authController.profilePhoto,
-                ),*/
+                  authController.profileImage,
+                ),
                 child: const Center(
                   child: Text(
                     'Register',

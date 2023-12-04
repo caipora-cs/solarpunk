@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:solarpunk_prototype/controllers/auth_ctrl.dart';
+import 'package:solarpunk_prototype/controllers/authentication.dart';
 import 'package:solarpunk_prototype/firebase_options.dart';
 import 'package:solarpunk_prototype/views/screens/login_view.dart';
 import '/constant.dart';
@@ -11,6 +11,7 @@ void main() async {
   await Firebase.initializeApp(
   options: DefaultFirebaseOptions.currentPlatform,
   );
+  Get.put(Authentication());
   runApp(const MyApp());
 }
 
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         primaryColor: primaryColor,
         scaffoldBackgroundColor: backgroundColor,
       ),
-      home: const AuthGate(),
+      home: LoginScreen(),
     );
   }
 }
