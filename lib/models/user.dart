@@ -8,7 +8,7 @@ class User {
   String email;
   /*String? bionote;*/
   /*Int? phone;*/
-  String image;
+  String? image;
 
   User({
     required this.uid,

@@ -22,7 +22,7 @@ class SignupScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Solarpunk',
+              'Oradores',
               style: TextStyle(
                 fontSize: 35,
                 fontFamily: GoogleFonts.notoSansPahawhHmong().fontFamily,

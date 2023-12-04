@@ -26,16 +26,25 @@ class Authentication extends GetxController {
     );
   }
   // upload to the storage
-  Future<String> _uploadImage(File image) async {
-    Reference ref = firebaseStorage
-        .ref()
-        .child('profileImages')
-        .child(firebaseAuth.currentUser!.uid);
+  Future<String?> _uploadImage(File image) async {
+    if (!image.existsSync()) {
+      print('File does not exist');
+      return null;
+    }
+    try {
+      Reference ref = firebaseStorage
+          .ref()
+          .child('profileImages')
+          .child(firebaseAuth.currentUser!.uid);
 
-    UploadTask uploadTask = ref.putFile(image);
-    TaskSnapshot snap = await uploadTask;
-    String downloadUrl = await snap.ref.getDownloadURL();
-    return downloadUrl;
+      UploadTask uploadTask = ref.putFile(image);
+      TaskSnapshot snap = await uploadTask;
+      String downloadUrl = await snap.ref.getDownloadURL();
+      return downloadUrl;
+    } catch (e, stackTrace) {
+      print ('Error Uploading Image: $e, $stackTrace');
+      return null;
+    }
   }
 
   // registering user
@@ -49,7 +58,7 @@ class Authentication extends GetxController {
         UserCredential userCredential = await firebaseAuth
             .createUserWithEmailAndPassword(email: email, password: password);
         // upload image
-        String downloadURL = await _uploadImage(image);
+        String? downloadURL = await _uploadImage(image);
         model.User user = model.User(
           uid: userCredential.user!.uid,
           username: username,
@@ -71,7 +80,8 @@ class Authentication extends GetxController {
           colorText: primaryColor,
         );
       }
-    } catch (e) {
+    } catch (e, stackTrace) {
+      print('Error Registering User: $e, $stackTrace');
       Get.snackbar(
         'Error',
         e.toString(),
