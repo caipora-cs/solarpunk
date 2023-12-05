@@ -1,13 +1,10 @@
 import 'dart:ffi';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class User {
   String uid;
   String username;
   String email;
-  /*String? bionote;*/
-  /*Int? phone;*/
   String? image;
 
   User({
@@ -22,8 +19,6 @@ class User {
       'uid': uid,
       'username': username,
       'email': email,
-      /*'bionote': bionote,*/
-      /*'phone': phone,*/
       'image': image,
     };
   }

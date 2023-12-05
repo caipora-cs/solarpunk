@@ -48,7 +48,7 @@ class Authentication extends GetxController {
   }
 
   // registering user
-  void registerUser(String username, String email, String password, /*String? bionote, Int? phone,*/ File? image) async {
+  void registerUser(String username, String email, String password, File? image) async {
     try {
       if (username.isNotEmpty &&
           email.isNotEmpty &&
