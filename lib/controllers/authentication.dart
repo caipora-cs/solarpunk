@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
@@ -7,14 +5,38 @@ import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:solarpunk_prototype/models/user.dart' as model;
 import 'package:solarpunk_prototype/constant.dart';
+import '../views/screens/home_view.dart';
+import '../views/screens/login_view.dart';
 
 class Authentication extends GetxController {
   // singleton class
   static Authentication instance = Get.find();
   // Rx is a type of variable that can be observed for event changes
+  late Rx<User?> _firebaseUser;
   late Rx<File?> _pickedImage;
   //getter for the private variable
   File? get profileImage => _pickedImage.value;
+
+  @override
+  // onReady is a lifecycle method that is triggered when the widget is ready
+  void onReady() {
+    super.onReady();
+    // bind the firebase auth user to the _firebaseUser variable
+    _firebaseUser = Rx<User?>(firebaseAuth.currentUser);
+    // bind the user to any state changes in firebase auth
+    _firebaseUser.bindStream(firebaseAuth.authStateChanges());
+    // the ever method listes to the state of the user and calls the method passed to it
+    ever(_firebaseUser, _setLandingPage);
+  }
+
+  // if the user is logged in, go to home screen, else go to login screen
+  _setLandingPage(User? user) {
+    if (user == null) {
+      Get.offAll(() => LoginScreen());
+    } else {
+      Get.offAll(() => const HomeScreen());
+    }
+  }
 
   void pickImage() async {
     // pick image from gallery
