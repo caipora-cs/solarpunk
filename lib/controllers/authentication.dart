@@ -9,28 +9,32 @@ import 'package:solarpunk_prototype/models/user.dart' as model;
 import 'package:solarpunk_prototype/constant.dart';
 
 class Authentication extends GetxController {
+  // singleton class
   static Authentication instance = Get.find();
   // Rx is a type of variable that can be observed for event changes
   late Rx<File?> _pickedImage;
   //getter for the private variable
   File? get profileImage => _pickedImage.value;
+
   void pickImage() async {
-    // pick image
+    // pick image from gallery
     final pickedImage = await ImagePicker().pickImage(source: ImageSource.gallery);
     if (pickedImage!=null) {
       Get.snackbar('Profile Image', 'Sucessfully Picked Image');
     }
-    // save image to local storage
+    // convert the picked image to a file and save it to the private variable
     _pickedImage = Rx<File?>(
       File(pickedImage!.path),
     );
   }
-  // upload to the storage
+
   Future<String?> _uploadImage(File image) async {
+    // check if image exists
     if (!image.existsSync()) {
       print('File does not exist');
       return null;
     }
+    // create a reference to the firebase storage, append the path to the image as profileImages/userId
     try {
       Reference ref = firebaseStorage
           .ref()
@@ -39,6 +43,7 @@ class Authentication extends GetxController {
 
       print ('Reference path: ${ref.fullPath}');
       UploadTask uploadTask = ref.putFile(image);
+      // create a snapshot of the upload task and get the download url for later use
       TaskSnapshot snap = await uploadTask;
       String downloadUrl = await snap.ref.getDownloadURL();
       return downloadUrl;
@@ -55,10 +60,10 @@ class Authentication extends GetxController {
           email.isNotEmpty &&
           password.isNotEmpty &&
           image != null) {
-        // register user
+        // register user to firebase auth and save it to variable cred
         UserCredential userCredential = await firebaseAuth
             .createUserWithEmailAndPassword(email: email, password: password);
-        // upload image
+        // use the helper method to upload image to firebase storage and get the download url
         String? downloadURL = await _uploadImage(image);
         model.User user = model.User(
           uid: userCredential.user!.uid,
@@ -66,13 +71,11 @@ class Authentication extends GetxController {
           email: email,
           image: downloadURL,
         );
-        // save user data to firestore
+        // save user model data to firestore as json
         await firestore.collection('users').doc(userCredential.user!.uid).set(user.toJson());
-        // save user data to local storage
-        // navigate to home screen
       } else {
         Get.snackbar(
-          'Error',
+          'Error on Registering User',
           'Please fill all the fields',
           snackPosition: SnackPosition.BOTTOM,
           backgroundColor: secondaryColor,
@@ -87,6 +90,26 @@ class Authentication extends GetxController {
         snackPosition: SnackPosition.BOTTOM,
         backgroundColor: secondaryColor,
         colorText: primaryColor,
+      );
+    }
+  }
+
+  void loginUser(String email, String password) async {
+    try {
+      if (email.isNotEmpty && password.isNotEmpty) {
+        await firebaseAuth.signInWithEmailAndPassword(
+            email: email, password: password);
+        print('User Logged In');
+      } else {
+        Get.snackbar(
+          'Error on Login',
+          'Please fill all the fields',
+        );
+      }
+    } catch (e) {
+      Get.snackbar(
+        'Error on Login',
+        e.toString(),
       );
     }
   }
