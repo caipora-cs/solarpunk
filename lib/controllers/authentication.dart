@@ -37,6 +37,7 @@ class Authentication extends GetxController {
           .child('profileImages')
           .child(firebaseAuth.currentUser!.uid);
 
+      print ('Reference path: ${ref.fullPath}');
       UploadTask uploadTask = ref.putFile(image);
       TaskSnapshot snap = await uploadTask;
       String downloadUrl = await snap.ref.getDownloadURL();
@@ -63,8 +64,6 @@ class Authentication extends GetxController {
           uid: userCredential.user!.uid,
           username: username,
           email: email,
-          //bionote: bionote,
-          //phone: phone,
           image: downloadURL,
         );
         // save user data to firestore
