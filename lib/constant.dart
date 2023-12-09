@@ -2,21 +2,25 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:solarpunk_prototype/controllers/authentication.dart';
+import 'package:solarpunk_prototype/views/screens/post_view.dart';
 
 // Pages
 const pages = [
   Text('Home'),
   Text('Search'),
-  Text('Profile'),
+  PostView(),
   Text('Messages'),
-  Text('Add'),
+  Text('Profile'),
 ];
 
 // Colors
 const backgroundColor = Color(0xFFd6dcd2);
 const primaryColor = Color(0xFF968ab5);
 const secondaryColor = Color(0xFF7d8293);
+//Fonts
+final primaryFont = GoogleFonts.notoSansPahawhHmong().fontFamily;
 
 // Firebase
 var firebaseStorage = FirebaseStorage.instance;
