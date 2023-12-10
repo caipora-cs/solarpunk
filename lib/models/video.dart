@@ -35,7 +35,7 @@ class Video {
     "likes": likes,
     "commentCount": commentCount,
     "shareCount": shareCount,
-    "songName": keywords,
+    "keywords": keywords,
     "caption": caption,
     "videoUrl": videoUrl,
     "thumbnail": thumbnail,
