@@ -21,18 +21,18 @@ class SignupScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Solarpunk',
-              style: TextStyle(
-                fontSize: 35,
-                fontFamily: GoogleFonts.notoSansPahawhHmong().fontFamily,
-                color: primaryColor,
-                fontWeight: FontWeight.w900,
+            Container(
+              width: 700,
+              height: 200,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/images/welcome_banner.png'),
+                ),
               ),
             ),
-            const SizedBox(
+            /*const SizedBox(
               height: 25,
-            ),
+            ),*/
             Stack(
               children: [
                 const CircleAvatar(
