@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:solarpunk_prototype/controllers/authentication.dart';
@@ -12,7 +13,7 @@ const pages = [
   Text('Search'),
   PostView(),
   Text('Messages'),
-  Text('Profile'),
+  ProfileScreen(),
 ];
 
 // Colors

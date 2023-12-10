@@ -1,7 +1,8 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:solarpunk_prototype/controllers/video_upload.dart';
 import 'package:video_player/video_player.dart';
-
+import 'package:get/get.dart';
 import '../widgets/textfield.dart';
 
 class PrePostView extends StatefulWidget {
@@ -23,8 +24,8 @@ class _PrePostViewState extends State<PrePostView> {
   TextEditingController _keywordsController = TextEditingController();
   TextEditingController _captionController = TextEditingController();
 
-  /*UploadVideoController uploadVideoController =
-  Get.put(UploadVideoController());*/
+  VideoUploadController uploadVideoController =
+  Get.put(VideoUploadController());
 
   @override
   // configure video player controller and play video on init
@@ -92,11 +93,11 @@ class _PrePostViewState extends State<PrePostView> {
                     height: 10,
                   ),
                   ElevatedButton(
-                      onPressed: () =>  print('post'),
-                      /*uploadVideoController.uploadVideo(
+                      onPressed: () =>
+                      uploadVideoController.uploadVideo(
                           _keywordsController.text,
                           _captionController.text,
-                          widget.videoPath),*/
+                          widget.videoPath),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.green,
                         shape: RoundedRectangleBorder(

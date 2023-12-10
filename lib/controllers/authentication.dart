@@ -26,6 +26,7 @@ class Authentication extends GetxController {
     // bind the user to any state changes in firebase auth
     _firebaseUser.bindStream(firebaseAuth.authStateChanges());
     // the ever method listes to the state of the user and calls the method passed to it
+    print(_firebaseUser.value);
     ever(_firebaseUser, _setLandingPage);
   }
 
@@ -135,5 +136,7 @@ class Authentication extends GetxController {
       );
     }
   }
-
+  void signOut() async {
+    await firebaseAuth.signOut();
+  }
 }
