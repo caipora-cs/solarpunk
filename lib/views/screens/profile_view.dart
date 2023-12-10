@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-class ProfileScreen extends StatelessWidget {
+import '../../constant.dart';
+
+class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,7 @@ class ProfileScreen extends StatelessWidget {
       child: Center(
         child: InkWell(
           onTap: () {
-
+            authController.signOut();
           },
           child: Text(
                  'Sign Out',

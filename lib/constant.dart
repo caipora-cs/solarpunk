@@ -6,14 +6,15 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:solarpunk_prototype/controllers/authentication.dart';
 import 'package:solarpunk_prototype/views/screens/post_view.dart';
+import 'package:solarpunk_prototype/views/screens/profile_view.dart';
 
 // Pages
-const pages = [
+final pages = [
   Text('Home'),
   Text('Search'),
   PostView(),
   Text('Messages'),
-  ProfileScreen(),
+  ProfileView(),
 ];
 
 // Colors

@@ -18,18 +18,19 @@ class LoginScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Solarpunk',
-              style: TextStyle(
-                fontSize: 35,
-                fontFamily: GoogleFonts.notoSansPahawhHmong().fontFamily,
-                color: primaryColor,
-                fontWeight: FontWeight.w900,
+            //add logo image here
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height / 2,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/images/Solarpunk_logo.png'),
+                ),
               ),
             ),
-            const SizedBox(
+           /* const SizedBox(
               height: 25,
-            ),
+            ),*/
             Container(
               width: MediaQuery.of(context).size.width,
               margin: const EdgeInsets.symmetric(horizontal: 20),
