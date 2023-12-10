@@ -2,23 +2,25 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:solarpunk_prototype/constant.dart';
+import 'package:solarpunk_prototype/views/screens/pre-post_view.dart';
 
 
 class PostView extends StatelessWidget {
   const PostView({Key? key}) : super(key: key);
 
   pickVideo(ImageSource src, BuildContext context) async {
+    // pick video from gallery or camera and navigate to PrePostView
     final video = await ImagePicker().pickVideo(source: src);
-    /*if (video != null) {
+    if (video != null) {
       Navigator.of(context).push(
         MaterialPageRoute(
-          builder: (context) => ConfirmScreen(
+          builder: (context) => PrePostView(
             videoFile: File(video.path),
             videoPath: video.path,
           ),
         ),
       );
-    }*/
+    }
   }
 
   postOptions(BuildContext context) {
