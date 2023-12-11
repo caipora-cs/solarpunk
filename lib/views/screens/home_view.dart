@@ -29,11 +29,11 @@ class _HomeScreenState extends State<HomeScreen> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home, size: 30),
-            label: 'Home',
+            label: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.search, size: 30),
-            label: 'Search',
+            label: '',
           ),
           BottomNavigationBarItem(
             icon: PunkIcon(),
@@ -41,11 +41,11 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.message, size: 30),
-            label: 'Messages',
+            label: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person, size: 30),
-            label: 'Profile',
+            label: '',
           ),
         ],
       ),

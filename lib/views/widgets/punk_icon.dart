@@ -49,7 +49,7 @@ class PunkIcon extends StatelessWidget {
                 borderRadius: BorderRadius.circular(7),
               ),
               child: const Icon(
-                Icons.add_reaction_outlined,
+                Icons.eco_rounded,
                 color: Colors.green,
                 size: 25,
               ),
