@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:solarpunk_prototype/constant.dart';
-import 'package:solarpunk_prototype/controllers/authentication.dart';
-//import 'package:solarpunk_prototype/controllers/auth_controller.dart';
 import 'package:solarpunk_prototype/views/screens/login_view.dart';
 import 'package:solarpunk_prototype/views/widgets/textfield.dart';
 
@@ -21,14 +19,45 @@ class SignupScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              width: 700,
-              height: 200,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/images/welcome_banner.png'),
+            Stack(
+              alignment: Alignment.center, // Center the text over the image
+              children: [
+                Container(
+                  width: 800, // Adjust the width as needed
+                  height: 250, // Adjust the height as needed
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        secondaryColor,
+                        backgroundColor,
+                      ],
+                    ),
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/banner_nobg.png'),
+                      fit: BoxFit.cover, // Ensure the image covers the container
+                    ),
+                  ),
                 ),
-              ),
+                Text(
+                  "welcome",
+                  style: TextStyle(
+                    fontFamily: GoogleFonts.lobsterTwo().fontFamily,
+                    fontSize: 37, // Adjust the font size as needed
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 8,
+                    shadows: [
+                      Shadow(
+                        blurRadius: 10.0,
+                        color: Colors.black,
+                        offset: Offset(5.0, 5.0),
+                      ),
+                    ],
+                    color: bannerColor, // Choose a color that contrasts well with the banner
+                  ),
+                ),
+              ],
             ),
             /*const SizedBox(
               height: 25,

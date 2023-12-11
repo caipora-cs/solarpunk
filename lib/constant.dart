@@ -21,8 +21,9 @@ final pages = [
 const backgroundColor = Color(0xFFd6dcd2);
 const primaryColor = Color(0xFF968ab5);
 const secondaryColor = Color(0xFF7d8293);
+const bannerColor = Color(0xFF76d7c4);
 //Fonts
-final primaryFont = GoogleFonts.notoSansPahawhHmong().fontFamily;
+final primaryFont = GoogleFonts.lobsterTwo().fontFamily;
 
 // Firebase
 var firebaseStorage = FirebaseStorage.instance;

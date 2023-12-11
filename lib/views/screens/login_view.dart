@@ -14,6 +14,16 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+            colors: [
+              secondaryColor,
+              backgroundColor,
+            ],
+          ),
+        ),
         alignment: Alignment.center,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -23,6 +33,14 @@ class LoginScreen extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height / 2,
               decoration: const BoxDecoration(
+                /*gradient: LinearGradient(
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                  colors: [
+                    secondaryColor,
+                    backgroundColor,
+                  ],
+                ),*/
                 image: DecorationImage(
                   image: AssetImage('assets/images/Solarpunk_logo.png'),
                 ),
@@ -60,7 +78,7 @@ class LoginScreen extends StatelessWidget {
               width: MediaQuery.of(context).size.width - 40,
               height: 50,
               decoration: BoxDecoration(
-                color: primaryColor,
+                color: bannerColor,
                 borderRadius: const BorderRadius.all(
                   Radius.circular(5),
                 ),
@@ -101,7 +119,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                   child: Text(
                     'Register',
-                    style: TextStyle(fontSize: 20, color: primaryColor),
+                    style: TextStyle(fontSize: 20, color: bannerColor),
                   ),
                 ),
               ],
