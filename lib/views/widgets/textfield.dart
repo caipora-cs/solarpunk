@@ -30,9 +30,9 @@ class TextInputField extends StatelessWidget {
               color: secondaryColor,
             )),
         focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5),
+            borderRadius: BorderRadius.circular(10),
             borderSide: const BorderSide(
-              color: secondaryColor,
+              color: bannerColor,
             )),
       ),
       obscureText: isObscure,
