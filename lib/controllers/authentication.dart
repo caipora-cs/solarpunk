@@ -16,7 +16,7 @@ class Authentication extends GetxController {
   late Rx<File?> _pickedImage;
   //getter for the private variable
   File? get profileImage => _pickedImage.value;
-
+  User get user => _firebaseUser.value!;
   @override
   // onReady is a lifecycle method that is triggered when the widget is ready
   void onReady() {

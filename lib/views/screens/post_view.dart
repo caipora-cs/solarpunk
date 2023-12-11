@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:solarpunk_prototype/constant.dart';
 import 'package:solarpunk_prototype/views/screens/pre-post_view.dart';
@@ -97,7 +98,9 @@ class PostView extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 25,
-                  fontFamily: primaryFont,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 5,
+                  fontFamily: GoogleFonts.khand().fontFamily,
                 ),
               ),
             ),
