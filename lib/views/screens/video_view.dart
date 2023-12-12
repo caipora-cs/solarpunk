@@ -7,6 +7,7 @@ import 'package:video_player/video_player.dart';
 import '../../constant.dart';
 import '../../controllers/video_controller.dart';
 import '../widgets/icon_animation.dart';
+import 'comment_view.dart';
 
 class VideoView extends StatelessWidget {
   VideoView({Key? key}) : super(key: key);
@@ -186,14 +187,13 @@ class VideoView extends StatelessWidget {
                                   children: [
                                     InkWell(
                                       onTap: () =>
-                                    print('comment'),
-                                    /*Navigator.of(context).push(
+                                    Navigator.of(context).push(
                                         MaterialPageRoute(
-                                          builder: (context) => CommentScreen(
+                                          builder: (context) => CommentView(
                                             id: data.id,
                                           ),
                                         ),
-                                      ),*/
+                                      ),
                                       child: const Icon(
                                         Icons.comment,
                                         size: 40,
