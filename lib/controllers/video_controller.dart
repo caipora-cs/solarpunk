@@ -31,10 +31,12 @@ class VideoController extends GetxController {
   likeVideo(String id) async {
     DocumentSnapshot doc = await firestore.collection('videos').doc(id).get();
     var uid = authController.user.uid;
+    // check if the user has already liked the video and toggle the like
     if ((doc.data()! as dynamic)['likes'].contains(uid)) {
       await firestore.collection('videos').doc(id).update({
         'likes': FieldValue.arrayRemove([uid]),
       });
+      // if the user has not liked the video, add the like
     } else {
       await firestore.collection('videos').doc(id).update({
         'likes': FieldValue.arrayUnion([uid]),
