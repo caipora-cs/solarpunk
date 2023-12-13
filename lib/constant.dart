@@ -7,12 +7,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:solarpunk_prototype/controllers/authentication.dart';
 import 'package:solarpunk_prototype/views/screens/post_view.dart';
 import 'package:solarpunk_prototype/views/screens/profile_view.dart';
+import 'package:solarpunk_prototype/views/screens/search_view.dart';
 import 'package:solarpunk_prototype/views/screens/video_view.dart';
 
 // Pages
 List pages = [
   VideoView(),
-  Text('Search'),
+  SearchView(),
   const PostView(),
   Text('Messages'),
   ProfileView(),
