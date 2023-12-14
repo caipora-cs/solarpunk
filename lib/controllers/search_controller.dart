@@ -11,6 +11,7 @@ class SearchCtrl extends GetxController {
   searchUser(String typedUser) async {
     _searchedUsers.bindStream(firestore
         .collection('users')
+    // you can use where clause to filter the search using firestore query engine
         .where('username', isGreaterThanOrEqualTo: typedUser)
         .snapshots()
         .map((QuerySnapshot query) {

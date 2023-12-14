@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:solarpunk_prototype/constant.dart';
 import 'package:solarpunk_prototype/controllers/search_controller.dart';
+import 'package:solarpunk_prototype/views/screens/profile_view.dart';
 
 import '../../models/user.dart';
 
@@ -25,9 +26,11 @@ class SearchView extends StatelessWidget {
                 color: Colors.black,
               ),
             ),
+            // when user type in search bar it will call searchUser function
             onFieldSubmitted: (value) => searchController.searchUser(value),
           ),
         ),
+        // if searchedUsers list is empty then show empty container
         body: searchController.searchedUsers.isEmpty
             ? const Center(
           child: Text(
@@ -39,18 +42,19 @@ class SearchView extends StatelessWidget {
             ),
           ),
         )
+        // else show searchedUsers list
             : ListView.builder(
           itemCount: searchController.searchedUsers.length,
           itemBuilder: (context, index) {
             User user = searchController.searchedUsers[index];
             return InkWell(
               onTap: () =>
-              print('Profile View'),
-              /*Navigator.of(context).push(
+              Navigator.of(context).push(
                 MaterialPageRoute(
+                  // pass uid to a searched user profile
                   builder: (context) => ProfileView(uid: user.uid),
                 ),
-              ),*/
+              ),
               child: ListTile(
                 leading: CircleAvatar(
                   backgroundImage: NetworkImage(

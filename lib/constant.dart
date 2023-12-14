@@ -16,7 +16,8 @@ List pages = [
   SearchView(),
   const PostView(),
   Text('Messages'),
-  ProfileView(),
+  // pass in the uid of the current user
+  ProfileView(uid: authController.user.uid),
 ];
 
 // Colors
