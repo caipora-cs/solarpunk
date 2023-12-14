@@ -34,6 +34,7 @@ class _ProfileScreenState extends State<ProfileView> {
     return GetBuilder<ProfileController>(
         init: ProfileController(),
         builder: (controller) {
+          //while user is loading show circular progress indicator
           if (controller.user.isEmpty) {
             return const Center(
               child: CircularProgressIndicator(),
@@ -73,8 +74,10 @@ class _ProfileScreenState extends State<ProfileView> {
                                   imageUrl: controller.user['image'],
                                   height: 100,
                                   width: 100,
+                                  // use loaders as placeholder for images while it loads
                                   placeholder: (context, url) =>
                                   const CircularProgressIndicator(),
+                                  // if error occurs while loading image
                                   errorWidget: (context, url, error) =>
                                   const Icon(
                                     Icons.error,
@@ -182,9 +185,12 @@ class _ProfileScreenState extends State<ProfileView> {
                                   }
                                 },
                                 child: Text(
+                                  // if user is on his own profile then show sign out button
                                   widget.uid == authController.user.uid
                                       ? 'Sign Out'
+                                  // else show follow button
                                       : controller.user['isFollowing']
+                                  // if user is following then show unfollow button
                                       ? 'Unfollow'
                                       : 'Follow',
                                   style: const TextStyle(
