@@ -1,12 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:solarpunk_prototype/views/widgets/video_player.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
-
 import '../../constant.dart';
 import '../../controllers/video_controller.dart';
-import '../widgets/icon_animation.dart';
 import 'comment_view.dart';
 
 class VideoView extends StatelessWidget {
@@ -230,8 +229,10 @@ class VideoView extends StatelessWidget {
                                     )
                                   ],
                                 ),
-                                IconAnimation(
-                                  child: buildCategorie(data.profileImage),
+                                Lottie.asset(
+                                  'assets/images/wired-lineal-1832-sunflower(1).json',
+                                  width: 90,
+                                  height: 90,
                                 ),
                               ],
                             ),
