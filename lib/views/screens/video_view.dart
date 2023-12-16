@@ -229,10 +229,16 @@ class VideoView extends StatelessWidget {
                                     )
                                   ],
                                 ),
-                                Lottie.asset(
-                                  'assets/images/wired-lineal-1832-sunflower(1).json',
-                                  width: 90,
-                                  height: 90,
+                                InkWell(
+                                  onTap: () {
+                                    print ('tapped');
+                                  },
+                                  child:
+                                  Lottie.asset(
+                                    'assets/images/wired-lineal-1832-sunflower(1).json',
+                                    width: 90,
+                                    height: 90,
+                                  ),
                                 ),
                               ],
                             ),
